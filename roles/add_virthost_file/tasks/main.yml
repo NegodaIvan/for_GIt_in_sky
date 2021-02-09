@@ -1,0 +1,31 @@
+---
+# tasks file for add_virthost_file
+- name: copying a web page from a git
+  get_url:
+    url: https://github.com/**************************.html
+    dest: /var/www/
+
+    # name: unzipp web page to /var/www 
+    #unarchive:
+    #src: /tmp/*******************.zip
+    #dest: /var/www/
+    #remote_src: yes
+
+- name: copy new virthost file
+  template:
+   src:  "{{ virt_host }}.j2"
+   dest: /etc/nginx/sites-available/virthost
+   mode: 0644
+  tags: virthost
+  notify:
+   - NGINX_reload
+
+- name: Create a symbolic link
+  file:
+   src: /etc/nginx/sites-available/virthost
+   dest: /etc/nginx/sites-enabled/default
+   state: link
+  tags: virthost
+  notify:
+    - NGINX_reload
+

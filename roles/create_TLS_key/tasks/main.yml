@@ -1,0 +1,22 @@
+---
+# tasks file for create_TLS_key
+
+- name: check a TLS key
+  shell: "find  /etc/letsencrypt/archive/{{ server_name }}  -name 'cert*.pem' "
+  register: find_key
+  tags: TLS
+
+- name: take a new TLS key
+  shell:  "certbot  certonly --webroot -m {{ email }} --agree-tos  -w {{ default_directory  }} -d {{ server_name  }}"
+  when: find_key.stdout == ""
+  tags: TLS
+
+- name: Creates a cron for update TLS-key
+  cron:
+     name: update TSL-key
+     minute: "0"
+     hour: "*/12"
+     user: root
+     job: /usr/bin/certbot -q renew --renew-hook '/usr/sbin/service nginx reload'
+  tags: TLS
+
