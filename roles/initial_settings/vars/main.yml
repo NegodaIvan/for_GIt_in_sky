@@ -1,4 +1,4 @@
 ---
 User_password: $6$XdXn0Hbdrr9zfKfP$dGaFOVC0ZodgClG0v7Ut8lxOvKQUX8tFX7KmWXWJQChJpWS9sVZ81CKEdHoh7OrSnBZudpGaByUJR61HkWpVW.
-net.core.somaxconn: 65535
-fs.file.max: 1204000 
+net_core_somaxconn: 65535
+fs_file_max: 1204000 

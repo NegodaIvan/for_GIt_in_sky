@@ -6,11 +6,13 @@
     dest: /var/www/
   tags: copying_page
 
-    # name: unzipp web page to /var/www 
+    #если нужено будет копирвоать страницу в виде архива
+    #name: unzipp web page to /var/www 
     #unarchive:
     #src: /tmp/*******************.zip
     #dest: /var/www/
     #remote_src: yes
+    #tags: copying_page
 
 - name: copy new virthost file
   template:
