@@ -3,6 +3,6 @@
   become: yes
 
   roles:
-     - { role: install_pkg , when: ansible_os_family == "Debian"  }
+     - { role: initial_settings, when: ansible_os_family == "Debian"  }
      - { role: create_TLS_key }
      - { role: add_virthost_file }  

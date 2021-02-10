@@ -2,8 +2,9 @@
 # tasks file for add_virthost_file
 - name: copying a web page from a git
   get_url:
-    url: https://github.com/**************************.html
+    url: '{{ first_page }}'
     dest: /var/www/
+  tags: copying_page
 
     # name: unzipp web page to /var/www 
     #unarchive:

@@ -3,3 +3,4 @@
 default_directory: /var/www/
 server_name: **********************net
 virt_host: virthost
+first_page:  https://github.com/**************************.html

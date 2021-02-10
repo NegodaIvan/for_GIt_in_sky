@@ -13,7 +13,7 @@
    - name: net.core.somaxconn
      sysctl:
       name: net.core.somaxconn
-      value: '65535'
+      value: '{{ net.core.somaxconn  }}'
       sysctl_set: yes
      tags: sysctl
       
@@ -21,14 +21,14 @@
    - name: fs.file-max
      sysctl:
       name: fs.file-max
-      value: '1204000'
+      value: '{{ fs.file.max }}'
       sysctl_set: yes
      tags: sysctl
 
    - name: add user admin
      user:
        name: admin
-       password: $6$XdXn0Hbdrr9zfKfP$dGaFOVC0ZodgClG0v7Ut8lxOvKQUX8tFX7KmWXWJQChJpWS9sVZ81CKEdHoh7OrSnBZudpGaByUJR61HkWpVW.
+       password: '{{ User_password }}'
        shell: /bin/bash
        groups: sudo
        append: yes
@@ -39,5 +39,5 @@
        state: present
        key: '{{ item }}'
      with_file:
-     - /home/negoda/.ssh/id_rsa.pub
-     - /home/negoda/.ssh/second_key.pub
+     - first_key_rsa.pub
+     - second_key_rsa.pub
