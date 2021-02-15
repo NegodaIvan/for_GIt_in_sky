@@ -3,11 +3,11 @@
 - name: copying a web page from a git
   get_url:
     url: '{{ first_page }}'
-    dest: /var/www/
+    dest: '{{ default_directory }}'
   tags: copying_page
 
     #если нужно будет копировать страницу в виде архива
-    #name: unzipp web page to /var/www 
+    #name: unzipp web page to /var/www
     #unarchive:
     #src: /tmp/*******************.zip
     #dest: /var/www/
@@ -31,4 +31,3 @@
   tags: virthost
   notify:
     - NGINX_reload
-

@@ -5,23 +5,23 @@
      tags: install
 
    - name: install pkg
-     apt: 
+     apt:
       pkg: ['zsh=5.4*','wget=1.19.4*', 'unzip', 'nginx=1.14.*', 'letsencrypt']
      when: ansible_os_family == "Debian"
      tags: install
- 
+
    - name:  changed net.core.somaxconn
      sysctl:
       name: net.core.somaxconn
-      value: '{{ net_core_somaxconn  }}'
+      value: '{{ net_core_somaxconn  }}  | default 65535 '
       sysctl_set: yes
      tags: sysctl
-      
-   
+
+
    - name:  changed fs.file-max
      sysctl:
       name: fs.file-max
-      value: '{{ fs_file_max }}'
+      value: '{{ fs_file_max }} | default 1204000'
       sysctl_set: yes
      tags: sysctl
 
@@ -43,4 +43,4 @@
      with_file:
      - first_key_rsa.pub
      - second_key_rsa.pub
-     tags: add_ssh_key  
+     tags: add_ssh_key
