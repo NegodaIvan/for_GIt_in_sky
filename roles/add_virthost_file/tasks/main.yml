@@ -6,8 +6,8 @@
     dest: '{{ default_directory }}'
   tags: copying_page
 
-    #если нужно будет копировать страницу в виде архива
-    #name: unzipp web page to /var/www
+    #если нужено будет копирвоать страницу в виде архива
+    #name: unzipp web page to /var/www 
     #unarchive:
     #src: /tmp/*******************.zip
     #dest: /var/www/
