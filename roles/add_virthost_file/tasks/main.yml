@@ -6,7 +6,7 @@
     dest: /var/www/
   tags: copying_page
 
-    #если нужено будет копирвоать страницу в виде архива
+    #если нужно будет копировать страницу в виде архива
     #name: unzipp web page to /var/www 
     #unarchive:
     #src: /tmp/*******************.zip
