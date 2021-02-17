@@ -1,5 +1,6 @@
 ---
 # vars file for add_virthost_file
+default_port: 443
 default_directory: /var/www/
 server_name: **********************net
 virt_host: virthost
