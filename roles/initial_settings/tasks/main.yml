@@ -13,7 +13,7 @@
    - name:  changed net.core.somaxconn
      sysctl:
       name: net.core.somaxconn
-      value: '{{ net_core_somaxconn  }}  | default 65535 '
+      value: '{{ net_core_somaxconn | default 65535 }}'
       sysctl_set: yes
      tags: sysctl
 
@@ -21,7 +21,7 @@
    - name:  changed fs.file-max
      sysctl:
       name: fs.file-max
-      value: '{{ fs_file_max }} | default 1204000'
+      value: '{{ fs_file_max | default 1204000 }}'
       sysctl_set: yes
      tags: sysctl
 
